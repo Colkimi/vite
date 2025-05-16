@@ -42,7 +42,8 @@
       max-width: 20rem;
       max-height: 23.75rem;
       height: 100%;
-      transition: box-shadow 0.2s;
+      transition: box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
     }
       .cart {
       border-radius: 1rem;
@@ -61,7 +62,20 @@
     }
 
     .card:hover {
-      box-shadow: 0 0.75rem 2rem rgba(0,0,0,0.16);
+      box-shadow: 0 1.5rem 3rem rgba(0,0,0,0.18);
+      transform: translateY(-0.25rem) scale(1.03);
+      z-index: 2;
+    }
+    .dessert-image-wrapper {
+      display: block;
+      border-radius: 0.75rem;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .dessert-image-wrapper.selected {
+      border: 2px solid hsl(14, 86%, 42%);
+      box-shadow: 0 0.5rem 1.5rem rgba(220, 38, 38, 0.08);
+      height: 65.5%;
     }
     .dessert-image {
       width: 100%;
@@ -71,6 +85,7 @@
       margin-bottom: 1.13rem;
       object-fit: cover;
       box-shadow: 0 0.13rem 0.5rem rgba(0,0,0,0.06);
+      display: block;
     }
     .add-to-cart {
       margin-top: auto;
@@ -97,7 +112,7 @@
       z-index: 1;
       gap: 0;
       transition: background 0.2s;
-      bottom: 3.13rem;
+      bottom: 2rem;
       cursor: pointer;
     }
     .quantity-circle.active {

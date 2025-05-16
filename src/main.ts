@@ -41,7 +41,9 @@ function renderProducts(products: Product[]) {
     const inCart = product.items_seleced && product.items_seleced > 0;
     return `
       <div class="card" data-id="${product.id}">
-        ${getResponsiveImage(productsData[product.id - 1].image)}
+        <span class="dessert-image-wrapper${inCart ? ' selected' : ''}">
+          ${getResponsiveImage(productsData[product.id - 1].image)}
+        </span>
         <div class="add-to-cart">
           ${inCart ? `
             <div class="quantity-circle active">
@@ -147,9 +149,9 @@ async function renderAndBind() {
       if (popup) {
         popup.innerHTML = `
           <div class="order-popup-content">
-          <img src="/images/icon-order-confirmed.svg">
+            <img src="/images/icon-order-confirmed.svg">
             <h2 class="order-popup-title">Order Confirmed</h2>
-            <div class="order-popup-details">
+            <div class="order-popup-details-scrollable" style="max-height: 260px; overflow-y: auto; margin-bottom: 1rem;">
               ${selected.length ? selected.map(p => `
                 <div class="order-popup-item" style="display: flex; align-items: center; justify-content: space-between; gap: 0.7rem;">
                   <img src="${productsData[p.id - 1].image.thumbnail}" alt="${p.name}" style="width: 3.5rem; height: 3.5rem; border-radius: 0.5rem; object-fit: cover; margin-right: 0.7rem;">
@@ -236,4 +238,3 @@ async function updateCart() {
 }
 
 main().catch(console.error);
-
