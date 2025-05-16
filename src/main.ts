@@ -147,7 +147,7 @@ async function renderAndBind() {
       if (popup) {
         popup.innerHTML = `
           <div class="order-popup-content">
-          <img src="src/images/icon-order-confirmed.svg">
+          <img src="/images/icon-order-confirmed.svg">
             <h2 class="order-popup-title">Order Confirmed</h2>
             <div class="order-popup-details">
               ${selected.length ? selected.map(p => `
