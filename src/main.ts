@@ -45,12 +45,12 @@ function renderProducts(products: Product[]) {
         <div class="add-to-cart">
           ${inCart ? `
             <div class="quantity-circle active">
-              <button class="decrement-btn" data-id="${product.id}"><img src="./src/images/icon-decrement-quantity.svg" alt="-" /></button>
+              <button class="decrement-btn" data-id="${product.id}"><img src="/images/icon-decrement-quantity.svg" alt="-" /></button>
               <span class="item-count">${product.items_seleced}</span>
-              <button class="increment-btn" data-id="${product.id}"><img src="./src/images/icon-increment-quantity.svg" alt="+" /></button>
+              <button class="increment-btn" data-id="${product.id}"><img src="/images/icon-increment-quantity.svg" alt="+" /></button>
             </div>
           ` : `
-            <button class="add-to-cart-btn" data-id="${product.id}"><img src="./src/images/icon-add-to-cart.svg" class="big">Add to cart</button>
+            <button class="add-to-cart-btn" data-id="${product.id}"><img src="/images/icon-add-to-cart.svg" class="big">Add to cart</button>
           `}
         </div>
         <div class="dessert-info">
@@ -202,7 +202,7 @@ async function updateCart() {
             $${(p.individual_price * (p.items_seleced || 0)).toFixed(2)}
           </span>
           <button class="remove-item" data-id="${p.id}">
-            <img src="./src/images/icon-remove-item.svg">
+            <img src="/images/icon-remove-item.svg">
           </button>
         </div>
         ${i < selected.length - 1 ? '<hr style="margin:8px 0;">' : ''}
@@ -212,10 +212,10 @@ async function updateCart() {
 
       </div>` +
         `<div style="background-color: hsl(13, 31%, 94%); justify-content: center; align-items: center; padding: 8px; margin-top: 16px;margin-bottom:16px;padding:10px; border-radius: 8px; ">
-        <img src="./src/images/icon-carbon-neutral.svg" >
+        <img src="/images/icon-carbon-neutral.svg" >
         This is a &nbsp<b> carbon-neutral </b>&nbsp delivery
         </div>`
-    : `<div class="empty-cart-illustration"><img src="./src/images/illustration-empty-cart.svg" alt="Empty cart" /><p>Your cart is empty.</p></div>`;
+    : `<div class="empty-cart-illustration"><img src="/images/illustration-empty-cart.svg" alt="Empty cart" /><p>Your cart is empty.</p></div>`;
   const checkoutBtn = document.querySelector<HTMLButtonElement>('.checkout');
   if (checkoutBtn) {
     checkoutBtn.style.display = selected.length ? 'block' : 'none';
